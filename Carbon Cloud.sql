@@ -9,8 +9,8 @@ CREATE TABLE "farms" (
 
 CREATE TABLE "robots" (
   "name" varchar,
-  "location" POINT,
-  "owner_farm_id" int,
+  "location" geometry,
+  "farm_id" uuid,
   "id" uuid DEFAULT uuid_generate_v1 ()
 );
 
@@ -33,6 +33,8 @@ grant api_user to authenticator;
 
 grant usage on schema api to api_user;
 grant all on api.farms to api_user;
+
+ALTER TABLE "robots" ADD FOREIGN KEY ("farm_id") REFERENCES "farms" ("id");
 
 -- UUID IDs are not sequential
 -- grant usage, select on sequence api.farm to todo_user;
