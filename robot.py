@@ -1,3 +1,4 @@
+# basic imports
 from datetime import datetime
 import pytz
 import json
@@ -9,12 +10,11 @@ import requests
 # import concurrent libray to increase speed
 from concurrent.futures import ThreadPoolExecutor
 
-
 # parameters
 readings_per_burst = 10
 metric_value_max = 10
 start_point = [-107.834117870184, 31.789303379317]
-end_point = [-107.824923914706,31.791937418138]
+end_point = [-107.824923914706, 31.791937418138]
 
 
 # defining the api-endpoint
